@@ -1988,12 +1988,12 @@ a {
   }
 
   .selector-group label {
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
   .selector-input,
   .selector-btn {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     padding: 9px 10px;
   }
 
@@ -2086,7 +2086,7 @@ a {
 
   .timetable-tab-btn {
     padding: 8px 12px;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
   }
 
   .timetable-header-info h3 {
