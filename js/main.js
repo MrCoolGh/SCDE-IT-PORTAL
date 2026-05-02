@@ -1,3 +1,5 @@
+// main.js (FULL CODE WITH TIME FORMAT FIX)
+
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 const menuOverlay = document.getElementById('menuOverlay');
@@ -39,17 +41,47 @@ const successCloseBtn = document.getElementById('successCloseBtn');
 
 function getExamStatus(examDate, examTime) {
     const now = new Date();
-    const timeParts = examTime.split('-');
-    const startTime = timeParts[0].trim();
+    
+    // Handle both "07:30-08:30" and "7:30AM" formats
+    let startTime = examTime;
+    if (examTime.includes('-')) {
+        startTime = examTime.split('-')[0].trim();
+    }
 
-    const [startHour, startMin] = startTime.split(':').map(Number);
+    let startHour, startMin;
+    
+    // Check if time already has AM/PM
+    if (startTime.includes('AM') || startTime.includes('PM')) {
+        const isPM = startTime.includes('PM');
+        const timeOnly = startTime.replace('AM', '').replace('PM', '').trim();
+        const [hour, min] = timeOnly.split(':').map(Number);
+        startHour = isPM ? (hour === 12 ? 12 : hour + 12) : (hour === 12 ? 0 : hour);
+        startMin = min;
+    } else {
+        [startHour, startMin] = startTime.split(':').map(Number);
+    }
 
     const [year, month, day] = examDate.split('-').map(Number);
     const examDateTime = new Date(year, month - 1, day, startHour, startMin);
 
-    const endTimeParts = timeParts[1].trim().split(':');
-    const endHour = parseInt(endTimeParts[0]);
-    const endMin = parseInt(endTimeParts[1]);
+    // Handle end time for exam duration
+    let endHour, endMin;
+    if (examTime.includes('-')) {
+        const endTime = examTime.split('-')[1].trim();
+        if (endTime.includes('AM') || endTime.includes('PM')) {
+            const isPM = endTime.includes('PM');
+            const timeOnly = endTime.replace('AM', '').replace('PM', '').trim();
+            const [hour, min] = timeOnly.split(':').map(Number);
+            endHour = isPM ? (hour === 12 ? 12 : hour + 12) : (hour === 12 ? 0 : hour);
+            endMin = min;
+        } else {
+            [endHour, endMin] = endTime.split(':').map(Number);
+        }
+    } else {
+        endHour = startHour + 1;
+        endMin = startMin;
+    }
+
     const endDateTime = new Date(year, month - 1, day, endHour, endMin);
 
     if (now < examDateTime) {
@@ -106,9 +138,17 @@ function getOrdinalSuffix(num) {
 }
 
 function formatTime(timeStr) {
-    // Handle both "07:30-09:00" and "7:30AM" formats
+    // If already in 12-hour format with AM/PM, return as is
+    if (timeStr.includes('AM') || timeStr.includes('PM')) {
+        // Extract just the time part (remove range if it exists)
+        if (timeStr.includes('-')) {
+            return timeStr.split('-')[0].trim();
+        }
+        return timeStr;
+    }
+
+    // Handle 24-hour format like "07:30-09:00"
     if (timeStr.includes(':') && !timeStr.includes('AM') && !timeStr.includes('PM')) {
-        // It's in 24-hour format like "07:30-09:00", extract start time
         timeStr = timeStr.split('-')[0].trim();
     }
 
@@ -119,9 +159,17 @@ function formatTime(timeStr) {
 }
 
 function formatTimeMobileOnly(timeStr) {
-    // Handle both "07:30-09:00" and "7:30AM" formats
+    // If already in 12-hour format with AM/PM, return as is
+    if (timeStr.includes('AM') || timeStr.includes('PM')) {
+        // Extract just the time part (remove range if it exists)
+        if (timeStr.includes('-')) {
+            return timeStr.split('-')[0].trim();
+        }
+        return timeStr;
+    }
+
+    // Handle 24-hour format like "07:30-09:00"
     if (timeStr.includes(':') && !timeStr.includes('AM') && !timeStr.includes('PM')) {
-        // It's in 24-hour format like "07:30-09:00", extract start time
         timeStr = timeStr.split('-')[0].trim();
     }
 
@@ -465,7 +513,7 @@ function updateTimetableDisplay(academicYear, semester) {
             // Format date and time based on screen size
             const isMobile = window.innerWidth <= 480;
             const dateDisplay = isMobile ? formatDateMobileOnly(entry.date) : formatDate(entry.date);
-            const timeDisplay = isMobile ? formatTimeMobileOnly(entry.time) : entry.time;
+            const timeDisplay = isMobile ? formatTimeMobileOnly(entry.time) : formatTime(entry.time);
 
             row.innerHTML = `
                 <td class="timetable-cell date-cell">${dateDisplay}</td>
@@ -499,7 +547,7 @@ function updateTimetableDisplay(academicYear, semester) {
             // Format date and time based on screen size
             const isMobile = window.innerWidth <= 480;
             const dateDisplay = isMobile ? formatDateMobileOnly(entry.date) : formatDate(entry.date);
-            const timeDisplay = isMobile ? formatTimeMobileOnly(entry.time) : entry.time;
+            const timeDisplay = isMobile ? formatTimeMobileOnly(entry.time) : formatTime(entry.time);
 
             row.innerHTML = `
                 <td class="timetable-cell date-cell">${dateDisplay}</td>
