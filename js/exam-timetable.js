@@ -53,7 +53,57 @@ const examTimetables = {
                     mode: "ONLINE ON-SITE"
                 }
             ],
-            "final": []
+            "final": [
+                {
+                    date: "2026-05-09",
+                    time: "07:30AM-08:30AM",
+                    courseCode: "DCIT301",
+                    courseName: "OPERATING SYSTEMS",
+                    mode: "ONLINE ON-SITE"
+                },
+                {
+                    date: "2026-05-10",
+                    time: "4:30PM-5:30PM",
+                    courseCode: "DCIT321",
+                    courseName: "SOFTWARE EVOLUTION",
+                    mode: "ONLINE ON-SITE"
+                },
+                {
+                    date: "2026-05-16",
+                    time: "4:30PM-5:30PM",
+                    courseCode: "DCIT313",
+                    courseName: "INTRODUCTION TO ARTIFICIAL INTELLIGENCE",
+                    mode: "ONLINE ON-SITE"
+                },
+                {
+                    date: "2026-05-23",
+                    time: "3:00PM-4:00PM",
+                    courseCode: "DCIT317",
+                    courseName: "IT PROJECT MANAGEMENT",
+                    mode: "ONLINE ON-SITE"
+                },
+                {
+                    date: "2026-05-24",
+                    time: "10:30AM-11:30AM",
+                    courseCode: "DCIT307",
+                    courseName: "MINI-PROJECT",
+                    mode: "ONLINE ON-SITE"
+                },
+                {
+                    date: "2026-05-30",
+                    time: "10:30AM-11:30AM",
+                    courseCode: "DCIT303",
+                    courseName: "COMPUTER NETWORKS",
+                    mode: "ONLINE ON-SITE"
+                },
+                {
+                    date: "2026-05-31",
+                    time: "07:30AM-08:30PM",
+                    courseCode: "DCIT323",
+                    courseName: "MULTIMEDIA AND WEB DESIGN",
+                    mode: "ONLINE ON-SITE"
+                }
+            ]
         },
         "2": {
             "provisional": [],
