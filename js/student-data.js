@@ -142,49 +142,50 @@ const courseData = {
     "DCIT301": {
         name: "OPERATING SYSTEMS",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus - Hall A",
+        venue: "UGCS LAB 3 MAIN",
+        venueMapLink: "https://maps.app.goo.gl/E6g9NyeRpRyXQUTm6",
         date: "2026-05-09",
         time: "07:30-09:00"
     },
     "DCIT321": {
         name: "SOFTWARE EVOLUTION",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus - Hall B",
+        venue: "Main Campus",
         date: "2026-05-10",
         time: "16:30-18:00"
     },
     "DCIT313": {
         name: "INTRO TO ARTIFICIAL INTELLIGENCE",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus - Lab 1",
+        venue: "Main Campus",
         date: "2026-05-16",
         time: "16:30-18:00"
     },
     "DCIT317": {
         name: "IT PROJECT MANAGEMENT",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus - Hall C",
+        venue: "Main Campus",
         date: "2026-05-23",
         time: "15:00-16:30"
     },
     "DCIT307": {
         name: "MINI-PROJECT",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus - Project Room",
+        venue: "Main Campus",
         date: "2026-05-24",
         time: "10:30-12:00"
     },
     "DCIT303": {
         name: "COMPUTER NETWORKS",
         examMode: "ONLINE ON-SITE",
-        venue: "Accra Learning Centre - Room 101",
+        venue: "Main Campus",
         date: "2026-05-30",
         time: "10:30-12:00"
     },
     "DCIT323": {
         name: "MULTIMEDIA AND WEB DESIGN",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus - Design Studio",
+        venue: "Main Campus",
         date: "2026-05-31",
         time: "12:00-13:30"
     }
@@ -203,6 +204,7 @@ function getCombinedData(studentId, courseCode) {
             courseCode: courseCode,
             examMode: course.examMode,
             venue: course.venue,
+            venueMapLink: course.venueMapLink || null,
             examDate: course.date,
             examTime: course.time
         };
