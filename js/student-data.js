@@ -150,7 +150,8 @@ const courseData = {
     "DCIT321": {
         name: "SOFTWARE EVOLUTION",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus",
+        venue: "UGCS LAB 3 MAIN",
+        venueMapLink: "https://maps.app.goo.gl/E6g9NyeRpRyXQUTm6",
         date: "2026-05-10",
         time: "16:30-18:00"
     },
