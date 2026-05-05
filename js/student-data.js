@@ -158,35 +158,35 @@ const courseData = {
     "DCIT313": {
         name: "INTRO TO ARTIFICIAL INTELLIGENCE",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus",
+        venue: "N/A",
         date: "2026-05-16",
         time: "16:30-18:00"
     },
     "DCIT317": {
         name: "IT PROJECT MANAGEMENT",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus",
+        venue: "N/A",
         date: "2026-05-23",
         time: "15:00-16:30"
     },
     "DCIT307": {
         name: "MINI-PROJECT",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus",
+        venue: "N/A",
         date: "2026-05-24",
         time: "10:30-12:00"
     },
     "DCIT303": {
         name: "COMPUTER NETWORKS",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus",
+        venue: "N/A",
         date: "2026-05-30",
         time: "10:30-12:00"
     },
     "DCIT323": {
         name: "MULTIMEDIA AND WEB DESIGN",
         examMode: "ONLINE ON-SITE",
-        venue: "Main Campus",
+        venue: "N/As",
         date: "2026-05-31",
         time: "12:00-13:30"
     }
