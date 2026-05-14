@@ -158,7 +158,8 @@ const courseData = {
     "DCIT313": {
         name: "INTRO TO ARTIFICIAL INTELLIGENCE",
         examMode: "ONLINE ON-SITE",
-        venue: "N/A",
+         venue: "UGCS LAB 3 MAIN",
+        venueMapLink: "https://maps.app.goo.gl/E6g9NyeRpRyXQUTm6",
         date: "2026-05-16",
         time: "16:30-18:00"
     },
